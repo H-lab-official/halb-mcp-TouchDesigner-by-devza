@@ -1,2 +1,0 @@
-Mode: built-in image_gen
-Prompt: Create a photorealistic scenic landscape background image for a live webcam art installation, horizontal 16:9. A tranquil alpine lake in a lush green mountain valley, soft distant blue mountains, small natural wildflowers in the foreground, warm gentle morning sunlight, clear soft sky. Camera at human eye level, open unobstructed composition so a person can be composited in the foreground, detailed natural photography, realistic colors, beautiful peaceful scenery. No people, no text, no watermark.

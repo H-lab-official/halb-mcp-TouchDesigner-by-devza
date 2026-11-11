@@ -1,152 +1,103 @@
 # HALB MCP TouchDesigner by Devza
 
-ควบคุม TouchDesigner จาก Codex ผ่าน MCP: ตรวจโครงสร้าง สร้างและเชื่อมโหนด แก้พารามิเตอร์/Expression เขียน DAT รัน Python ดูภาพจาก TOP และบันทึกโปรเจกต์
+MCP bridge สำหรับให้ Codex หรือ MCP client ควบคุม **โปรเจกต์ TouchDesigner ของคุณเอง** ผ่าน Python API
 
-มีตัวอย่าง **Interactive Flower Person**: เปลี่ยนคนจากกล้องเป็นดอกไม้บนฉากวิว พร้อมขอบฟุ้ง กลีบลอย ผีเสื้อ และปฏิสัมพันธ์จากมือกับแขน
+อ่านโครงสร้าง สร้างและเชื่อมโหนด ตั้งค่าพารามิเตอร์/Expression แก้ DAT รัน Python ดูภาพจาก TOP และบันทึกงานได้ ตัว bridge เพิ่ม component `/codex_mcp` เข้าไปในโปรเจกต์ที่คุณเลือก
 
-[คู่มือใช้งานภาษาไทยแบบละเอียด](docs/USER_GUIDE_TH.md)
+[คู่มือใช้งานภาษาไทย](docs/USER_GUIDE_TH.md)
 
 ## สิ่งที่ต้องมี
 
-| ส่วน | สิ่งที่ใช้ |
-|---|---|
-| MCP | Windows, TouchDesigner ที่รองรับ Python 3, Python 3.10+, Codex ที่เพิ่ม MCP ได้ |
-| ตัวอย่างคนดอกไม้ | ทดสอบบน TouchDesigner 2025.33230, RTX 5070 Laptop, กล้อง USB |
-| แยกคนออกจากฉาก | NVIDIA Video Effects SDK รุ่นตรงกับ GPU; รุ่นที่ทดสอบคือ 0.7.6 สำหรับ RTX 50 |
-| ติดตามมือและแขน | MediaPipe Pose แยกโปรเซส ด้วย Python 3.11 ที่มากับ TouchDesigner |
+- Windows และ TouchDesigner ที่รองรับ Python 3 — ทดสอบกับ 2025.33230
+- Python 3.10 ขึ้นไปสำหรับ MCP server
+- Codex หรือโปรแกรมที่รองรับ MCP ผ่าน stdio
 
-MCP พื้นฐานใช้ได้โดยไม่ต้องติดตั้งระบบกล้องและ MediaPipe ส่วนตัวอย่างคนดอกไม้ต้องใช้ส่วนเสริมตามตาราง
+ตัว MCP ไม่ต้องใช้ API key และไม่กำหนดให้ใช้ GPU, กล้อง หรือโมเดล AI เฉพาะ ความต้องการของโหนดในโปรเจกต์ขึ้นกับงานของคุณ
 
 ## ติดตั้ง
 
-ตัวอย่างใช้โฟลเดอร์ `D:\MCP\TD` หากใช้ที่อื่น ให้เปลี่ยนพาธในคำสั่งตามจริง
+เลือกโฟลเดอร์ที่ต้องการ แล้วรันใน PowerShell:
 
 ```powershell
-git clone https://github.com/H-lab-official/halb-mcp-TouchDesigner-by-devza.git D:\MCP\TD
-cd D:\MCP\TD
+git clone https://github.com/H-lab-official/halb-mcp-TouchDesigner-by-devza.git
+cd halb-mcp-TouchDesigner-by-devza
 .\setup.ps1 -RegisterMcp
 ```
 
-ถ้าจะใช้ตัวอย่างคนดอกไม้ด้วย:
+สคริปต์สร้าง `.venv`, ติดตั้ง dependencies และเพิ่ม MCP ชื่อ `touchdesigner` ใน Codex หากใช้ MCP client อื่น ให้รัน `setup.ps1` โดยไม่ใส่ `-RegisterMcp` แล้วตั้งค่า stdio ตามคู่มือ
 
-```powershell
-.\setup.ps1 -RegisterMcp -WithPose
-```
+หากเครื่องไม่อนุญาตให้รันสคริปต์ ใช้คำสั่งติดตั้งแยกในคู่มือ สคริปต์นี้ไม่เปลี่ยน Execution Policy ของ Windows
 
-`-WithPose` สร้าง `.pose-venv` ติดตั้ง MediaPipe/OpenCV และดาวน์โหลดโมเดล Pose Lite จาก Google พร้อมตรวจ SHA256 ส่วน NVIDIA SDK ให้ติดตั้งจาก[หน้า NVIDIA ทางการ](https://www.nvidia.com/en-us/geforce/broadcasting/broadcast-sdk/resources/) แล้วเปิด TouchDesigner ใหม่
+## เชื่อมกับโปรเจกต์
 
-หาก Python ของ TouchDesigner อยู่ที่อื่น:
-
-```powershell
-.\setup.ps1 -WithPose -TouchDesignerPython 'C:\path\to\TouchDesigner\bin\python.exe'
-```
-
-`setup.ps1` ไม่เปลี่ยน Execution Policy ของ Windows หากเครื่องไม่อนุญาตให้รันสคริปต์ ให้ใช้คำสั่งติดตั้งแยกในคู่มือ
-
-## เชื่อมโปรเจกต์กับ MCP
-
-1. เปิดโปรเจกต์ใน TouchDesigner
-2. กด **Alt+T** เปิด Textport และเลือก Python
-3. วางคำสั่งนี้แล้วกด Enter:
+1. เปิดไฟล์ `.toe` ที่ต้องการให้ควบคุม
+2. กด **Alt+T** เปิด Python Textport
+3. เปลี่ยนพาธ `p` ด้านล่างให้ตรงกับ repo บนเครื่อง แล้ววางทั้งบรรทัด:
 
 ```python
-p = 'D:/MCP/TD/install_td.py'; exec(compile(open(p, encoding='utf-8').read(), p, 'exec'), dict(globals(), __file__=p))
+p = 'C:/tools/halb-mcp-TouchDesigner-by-devza/install_td.py'; exec(compile(open(p, encoding='utf-8').read(), p, 'exec'), dict(globals(), __file__=p))
 ```
 
-จะได้ `/codex_mcp` และข้อความ `TouchDesigner MCP connected` ตัวติดตั้งสำรองไฟล์ที่บันทึกไว้เดิมลง `backups` ก่อน ไม่บันทึกทับโปรเจกต์ให้อัตโนมัติ
+4. เมื่อขึ้น `TouchDesigner MCP connected` ให้บันทึกโปรเจกต์
+5. ให้โปรเจกต์อยู่ในสถานะ **Play** ระหว่างใช้งาน
+6. เปิด Codex ใหม่หลังเพิ่ม MCP ครั้งแรก แล้วให้ตรวจ `connection_status` และ `get_project`
 
-4. บันทึกโปรเจกต์เพื่อเก็บตัวเชื่อมต่อไว้
-5. ให้ TouchDesigner อยู่ในสถานะ **Play** ระหว่างทำงาน
-6. เปิด Codex ใหม่หลังเพิ่ม MCP ครั้งแรก แล้วสั่งให้ตรวจ `connection_status` และ `get_project`
+ตัวติดตั้งสำรองไฟล์โปรเจกต์เดิมบนดิสก์ไว้ใน `backups` ก่อนเพิ่ม bridge และไม่บันทึกทับงานให้อัตโนมัติ หากเปิดโปรเจกต์อื่นที่ยังไม่มี bridge ให้ทำขั้นตอนนี้กับโปรเจกต์นั้นอีกครั้ง
 
-ตัวอย่างคำสั่งในแชต:
+## ตัวอย่างสั่งงาน
 
-- “อธิบายโครงสร้างโปรเจกต์นี้”
-- “สร้าง Noise → Blur → Level แล้วเพิ่มตัวปรับความสว่าง”
-- “ตรวจว่าโหนดไหนมีข้อผิดพลาด”
-- “ปรับความหนาแน่นของดอกไม้และบันทึกเป็นไฟล์ใหม่”
+- “อธิบายโครงสร้าง /project1 และตรวจว่ามีโหนดไหนผิดพลาด”
+- “สร้าง Noise TOP → Blur TOP → Level TOP พร้อมตัวปรับความสว่าง”
+- “เพิ่ม Expression ให้พารามิเตอร์นี้เคลื่อนไหวตามเวลา”
+- “แก้โค้ดใน DAT นี้ และตรวจผลจาก TOP output”
+- “บันทึกฉบับแก้ไขเป็นไฟล์ใหม่”
 
-## สร้างตัวอย่าง Interactive Flower Person
-
-เปิดโปรเจกต์ใหม่ แล้วบันทึก `.toe` ไว้ในโฟลเดอร์ repo จากนั้นใช้ Python Textport:
-
-```python
-import sys
-sys.path.insert(0, 'D:/MCP/TD/examples')
-from build_garden import build
-garden = build('D:/MCP/TD')
-```
-
-ตัวสร้างจะเพิ่ม `/project1/Flower_Person` เลือกกล้อง USB ที่พบ เปิดกล้อง และเปิดหน้าต่าง Output หากมีกล้องหลายตัว ให้เลือกที่ `Flower_Person/camera1` → Device
-
-โมเดลทำงานในเครื่อง ภาพกล้องจะถูกย่อเหลือ 512×288 เพื่อส่งให้ worker ในโฟลเดอร์ `runtime_pose`; ไม่มีการส่งภาพไปบริการคลาวด์ โฟลเดอร์นี้ไม่อยู่ใน Git
-
-### เล่นกับเอฟเฟกต์
-
-| การกระทำ | ผลลัพธ์ |
-|---|---|
-| โบกมือ | กลีบพุ่งออกใกล้ข้อมือและขอบตัว ยิ่งขยับเร็วแรงกระจายยิ่งมาก |
-| อยู่นิ่งประมาณ 3 วินาที | ดอกไม้ค่อย ๆ บาน |
-| ยกหรือลดระดับมือ | โทนสีดอกไม้ค่อย ๆ เปลี่ยน |
-| ให้กล้องเห็นไหล่ ศอก และข้อมือ | เถาวัลย์ค่อย ๆ งอกตามแขน |
-| อยู่หน้ากล้อง | ผีเสื้อเคลื่อนไหวรอบตำแหน่งตัวที่ตรวจพบ |
-
-ถอยให้เห็นตั้งแต่ศีรษะถึงเอวและแขนทั้งสองข้าง ใช้แสงให้เพียงพอ ตรวจสถานะที่ `interaction_status`: `tracked=1` หมายถึงพบคน และ `left_valid/right_valid` หมายถึงพบข้อมือ
-
-ตัวอย่างนี้ติดตามคนหลักหนึ่งคน ความแม่นยำขึ้นกับแสง การบังแขน และระยะกล้อง
-
-## เครื่องมือ MCP ทั้ง 12 ตัว
+## เครื่องมือ 12 ตัว
 
 | เครื่องมือ | หน้าที่ |
 |---|---|
-| `connection_status` | ตรวจ heartbeat ของตัวเชื่อมต่อ |
+| `connection_status` | ตรวจว่า bridge กำลังทำงาน |
 | `get_project` | อ่านชื่อและโครงสร้างระดับบนของโปรเจกต์ |
-| `list_nodes` | สำรวจโหนดในคอมโพเนนต์ |
-| `get_node` | อ่านค่า การเชื่อมต่อ ข้อผิดพลาด และข้อความ DAT |
+| `list_nodes` | สำรวจโหนดใต้คอมโพเนนต์ |
+| `get_node` | อ่านพารามิเตอร์ การเชื่อมต่อ ข้อผิดพลาด และข้อความ DAT |
 | `create_node` | สร้างโหนด โดยไม่ใช้ชื่อซ้ำ |
 | `set_parameters` | ตั้งค่า/Expression และคืนค่าเดิม |
 | `pulse_parameter` | กดพารามิเตอร์แบบ Pulse |
-| `connect_nodes` | ต่อ output เข้ากับ input ที่ระบุ |
-| `set_dat_text` | แก้ข้อความ DAT พร้อมคืนข้อความเดิม |
-| `execute_python` | รัน Python บนเธรดหลักของ TouchDesigner |
+| `connect_nodes` | เชื่อม output เข้ากับ input ที่ระบุ |
+| `set_dat_text` | เปลี่ยนข้อความ DAT พร้อมคืนข้อความเดิม |
+| `execute_python` | รัน Python บน main thread ของ TouchDesigner |
 | `save_project` | บันทึก `.toe`; ไฟล์เดิมต้องระบุ `overwrite=true` |
-| `snapshot_top` | ส่งภาพจาก TOP กลับให้ Codex ตรวจ |
+| `snapshot_top` | ส่งภาพจาก TOP กลับให้ client ตรวจ |
 
-Python ที่รันผ่าน MCP มีสิทธิ์เท่ากับ TouchDesigner และเข้าถึงไฟล์ในเครื่องได้ จึงควรใช้กับโค้ดและงานที่คุณอนุญาต
-
-## โครงสร้างและการทำงาน
+## การทำงาน
 
 ```text
-Codex → stdio MCP → local file queue → Execute DAT → TouchDesigner API
-
-กล้อง → AI person mask → flower shader → glow / particle feedback → vines / butterflies → OUT
-      └→ pose_input → MediaPipe worker → gesture controller ────────────────┘
+MCP client → stdio server → local file queue → Execute DAT → TouchDesigner API
 ```
 
-- คำสั่ง TouchDesigner ทำบน main thread ไม่เรียก OP API จาก worker thread
-- ไม่เปิดพอร์ต TCP ของ MCP
-- คิวตรวจได้สูงสุด 20 ครั้ง/วินาที รับหนึ่งคำสั่งต่อรอบ และส่ง heartbeat ทุกวินาที
-- คำสั่งผูกกับ session ปัจจุบันและหมดอายุใน 25 วินาที
-- หากรอคำตอบเกิน 30 วินาที ระบบแจ้งว่าผลลัพธ์ยังไม่แน่นอน ต้องอ่านสถานะก่อนสั่งแก้ซ้ำ
-- เปิดโปรเจกต์ที่ติด bridge เพียงหนึ่ง instance ต่อ repo ในเวลาเดียวกัน
+- ไม่เปิดพอร์ต TCP
+- OP API ทำงานบน main thread ของ TouchDesigner
+- คำสั่งผูกกับ session และหมดอายุใน 25 วินาที
+- หากรอคำตอบเกิน 30 วินาที จะไม่สั่งแก้ซ้ำให้อัตโนมัติ ให้ตรวจสถานะก่อนลองใหม่
+- ใช้หนึ่งโปรเจกต์ที่เปิด bridge ต่อ repo ในเวลาเดียวกัน
+- `execute_python` มีสิทธิ์เข้าถึงไฟล์และระบบเท่ากับโปรเซส TouchDesigner ใช้กับงานและโค้ดที่คุณอนุญาต
+
+## ไฟล์ใน repo
+
+| ไฟล์ | หน้าที่ |
+|---|---|
+| `server.py` | stdio MCP server |
+| `td_runtime.py` | ตัวรับคำสั่งบน main thread |
+| `install_td.py` | ติดตั้ง bridge เข้าโปรเจกต์ที่เปิดอยู่ |
+| `setup.ps1` | ติดตั้ง environment และลงทะเบียน Codex |
+| `requirements.txt` | เวอร์ชัน MCP SDK |
+| `test_bridge.py` | ทดสอบการรับส่งและจัดการคำสั่ง |
+| `docs/USER_GUIDE_TH.md` | คู่มือใช้งานและแก้ปัญหา |
 
 ## ทดสอบ
 
 ```powershell
-.\.venv\Scripts\python.exe -m unittest discover -s . -p 'test_*.py' -v
-.\.pose-venv\Scripts\python.exe -m pip check
+.\.venv\Scripts\python.exe -m unittest discover -s . -p test_bridge.py -v
 ```
 
-ทดสอบ transport, คำสั่งเก่า/หมดอายุ, การตอบหลาย client, การกู้หลังข้อผิดพลาด และ gesture logic ส่วนกล้อง/GPU ควรทดสอบบนเครื่องจริงอีกครั้ง
-
-## ไฟล์สำคัญ
-
-- `server.py` — stdio MCP server
-- `td_runtime.py`, `install_td.py` — bridge ฝั่ง TouchDesigner
-- `interaction_logic.py`, `pose_worker.py` — gesture state และ pose inference
-- `examples/flower_person.json` — โครงสร้างตัวอย่างแบบข้อความ ไม่มีภาพกล้องหรือ device ID
-- `examples/build_garden.py` — สร้างตัวอย่างจาก manifest
-- `*.frag` — GLSL shaders ที่อ่านและแก้ได้
-- `assets/landscape_lake.png` — ภาพวิวที่สร้างด้วย ImageGen; prompt อยู่ในโฟลเดอร์เดียวกัน
-
-ตัวติดตั้ง SDK, environments, โมเดล, คิว, ภาพกล้องชั่วคราว และ `.toe` งานส่วนตัวไม่ถูกนำขึ้น Git
+ทดสอบคำสั่งหมดอายุ, session เก่า, การตอบหลาย client, การกู้หลังข้อผิดพลาด และการทำคำสั่งเพียงครั้งเดียว ส่วนโหนดและอุปกรณ์ในแต่ละโปรเจกต์ควรตรวจบน TouchDesigner จริง

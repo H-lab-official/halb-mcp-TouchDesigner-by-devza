@@ -4,7 +4,9 @@ import shutil
 import datetime
 from td import baseCOMP, textDAT, executeDAT
 
-root = Path(__file__).resolve().parent if '__file__' in globals() else Path('D:/MCP/TD')
+if '__file__' not in globals():
+    raise RuntimeError('Run the README Textport command with __file__ set to install_td.py')
+root = Path(__file__).resolve().parent
 existing = op('/codex_mcp')
 if existing is not None and 'codex-mcp-bridge' not in existing.tags:
     raise RuntimeError('/codex_mcp already exists and is not our bridge')

@@ -1,12 +1,11 @@
 .venv/
-.pose-venv/
+venv/
 __pycache__/
+*.py[cod]
+.env
 queue/
 previews/
 backups/
-dependencies/
-models/
-runtime_pose/
 *.toe
 *.toe.*
 *.tox
@@ -14,10 +13,4 @@ runtime_pose/
 *.tmp
 *.pid
 *.dmp
-*.part*
-Start_Flower_Person.cmd
-apply_interactive.py
-/flower_person.frag
-/flower_person_animated.frag
-/flower_person_landscape.frag
-/particle_trails.frag
+.DS_Store
