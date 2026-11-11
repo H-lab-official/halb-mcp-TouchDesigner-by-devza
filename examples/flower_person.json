@@ -1,0 +1,884 @@
+{
+  "schema": 1,
+  "component": "Flower_Person",
+  "custom_parameters": [
+    {
+      "name": "Density",
+      "label": "Flower Density",
+      "style": "Float",
+      "page": "Flower Controls",
+      "value": 32.0,
+      "minimum": 15.0,
+      "maximum": 100.0
+    },
+    {
+      "name": "Speed",
+      "label": "Animation Speed",
+      "style": "Float",
+      "page": "Flower Controls",
+      "value": 1.0,
+      "minimum": 0.0,
+      "maximum": 3.0
+    },
+    {
+      "name": "Strength",
+      "label": "Flower Amount",
+      "style": "Float",
+      "page": "Flower Controls",
+      "value": 1.0,
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    {
+      "name": "Brightness",
+      "label": "Brightness",
+      "style": "Float",
+      "page": "Flower Controls",
+      "value": 1.15,
+      "minimum": 0.0,
+      "maximum": 2.0
+    },
+    {
+      "name": "Background",
+      "label": "Landscape Brightness",
+      "style": "Float",
+      "page": "Flower Controls",
+      "value": 1.0,
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    {
+      "name": "Mirror",
+      "label": "Mirror Camera",
+      "style": "Toggle",
+      "page": "Flower Controls",
+      "value": true
+    },
+    {
+      "name": "Backgroundimage",
+      "label": "Landscape Image",
+      "style": "File",
+      "page": "Flower Controls",
+      "value": "assets/landscape_lake.png"
+    },
+    {
+      "name": "Edgeglow",
+      "label": "Edge Glow",
+      "style": "Float",
+      "page": "Edge and Particles",
+      "value": 1.0,
+      "minimum": 0.0,
+      "maximum": 2.0
+    },
+    {
+      "name": "Edgewidth",
+      "label": "Edge Softness",
+      "style": "Float",
+      "page": "Edge and Particles",
+      "value": 55.0,
+      "minimum": 5.0,
+      "maximum": 100.0
+    },
+    {
+      "name": "Particles",
+      "label": "Petal Amount",
+      "style": "Float",
+      "page": "Edge and Particles",
+      "value": 0.9,
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    {
+      "name": "Particlelife",
+      "label": "Trail Lifetime",
+      "style": "Float",
+      "page": "Edge and Particles",
+      "value": 3.2,
+      "minimum": 0.2,
+      "maximum": 6.0
+    },
+    {
+      "name": "Particlespeed",
+      "label": "Petal Drift",
+      "style": "Float",
+      "page": "Edge and Particles",
+      "value": 1.25,
+      "minimum": 0.0,
+      "maximum": 3.0
+    },
+    {
+      "name": "Particlesize",
+      "label": "Petal Size",
+      "style": "Float",
+      "page": "Edge and Particles",
+      "value": 5.5,
+      "minimum": 1.0,
+      "maximum": 12.0
+    },
+    {
+      "name": "Motionamount",
+      "label": "Flower Motion",
+      "style": "Float",
+      "page": "Flower Animation",
+      "value": 1.0,
+      "minimum": 0.0,
+      "maximum": 2.0
+    },
+    {
+      "name": "Rotation",
+      "label": "Flower Rotation",
+      "style": "Float",
+      "page": "Flower Animation",
+      "value": 0.65,
+      "minimum": 0.0,
+      "maximum": 2.0
+    },
+    {
+      "name": "Sway",
+      "label": "Flower Sway",
+      "style": "Float",
+      "page": "Flower Animation",
+      "value": 0.18,
+      "minimum": 0.0,
+      "maximum": 0.5
+    },
+    {
+      "name": "Bloom",
+      "label": "Flower Bloom",
+      "style": "Float",
+      "page": "Flower Animation",
+      "value": 0.2,
+      "minimum": 0.0,
+      "maximum": 0.4
+    },
+    {
+      "name": "Gesturesensitivity",
+      "label": "Gesture Sensitivity",
+      "style": "Float",
+      "page": "Interactive Garden",
+      "value": 1.0,
+      "minimum": 0.25,
+      "maximum": 3.0
+    },
+    {
+      "name": "Stillbloomtime",
+      "label": "Stillness Bloom Time",
+      "style": "Float",
+      "page": "Interactive Garden",
+      "value": 3.0,
+      "minimum": 0.5,
+      "maximum": 8.0
+    },
+    {
+      "name": "Burststrength",
+      "label": "Hand Burst Strength",
+      "style": "Float",
+      "page": "Interactive Garden",
+      "value": 1.5,
+      "minimum": 0.0,
+      "maximum": 3.0
+    },
+    {
+      "name": "Butterflies",
+      "label": "Butterfly Count",
+      "style": "Float",
+      "page": "Interactive Garden",
+      "value": 6.0,
+      "minimum": 0.0,
+      "maximum": 12.0
+    },
+    {
+      "name": "Vines",
+      "label": "Arm Vines",
+      "style": "Float",
+      "page": "Interactive Garden",
+      "value": 1.0,
+      "minimum": 0.0,
+      "maximum": 1.0
+    },
+    {
+      "name": "Interactionson",
+      "label": "Gesture Reactions",
+      "style": "Toggle",
+      "page": "Interactive Garden",
+      "value": true
+    },
+    {
+      "name": "Handbursts",
+      "label": "Wave Petal Bursts",
+      "style": "Toggle",
+      "page": "Interactive Garden",
+      "value": true
+    },
+    {
+      "name": "Idleblossom",
+      "label": "Bloom When Still",
+      "style": "Toggle",
+      "page": "Interactive Garden",
+      "value": true
+    },
+    {
+      "name": "Handcolor",
+      "label": "Hand Height Colors",
+      "style": "Toggle",
+      "page": "Interactive Garden",
+      "value": true
+    }
+  ],
+  "nodes": [
+    {
+      "name": "OUT",
+      "type": "nullTOP",
+      "x": 1200,
+      "y": 150,
+      "params": {},
+      "inputs": [
+        "living_garden"
+      ]
+    },
+    {
+      "name": "out1",
+      "type": "outTOP",
+      "x": 1430,
+      "y": 150,
+      "params": {
+        "pageindex": 0,
+        "label": {
+          "expression": "me.name"
+        }
+      },
+      "inputs": [
+        "OUT"
+      ]
+    },
+    {
+      "name": "camera1",
+      "type": "videodeviceinTOP",
+      "x": 0,
+      "y": 150,
+      "params": {
+        "pageindex": 0,
+        "signalformat": "f1280x720p-30.00hz",
+        "active": false
+      },
+      "inputs": []
+    },
+    {
+      "name": "pose_input",
+      "type": "resolutionTOP",
+      "x": -700,
+      "y": 100,
+      "params": {
+        "pageindex": 0,
+        "outputresolution": "custom",
+        "resolutionw": 512,
+        "resolutionh": 288
+      },
+      "inputs": [
+        "camera1"
+      ]
+    },
+    {
+      "name": "person_mask",
+      "type": "nvidiabackgroundTOP",
+      "x": 230,
+      "y": 150,
+      "params": {
+        "pageindex": 0
+      },
+      "inputs": [
+        "camera1"
+      ]
+    },
+    {
+      "name": "shader_info",
+      "type": "infoDAT",
+      "x": 480,
+      "y": -180,
+      "params": {
+        "pageindex": 0,
+        "op": "flower_shader",
+        "language": "text"
+      },
+      "inputs": []
+    },
+    {
+      "name": "particle_sim",
+      "type": "glslTOP",
+      "x": 230,
+      "y": -420,
+      "params": {
+        "pageindex": 0,
+        "glslversion": "glsl430",
+        "pixeldat": "particle_sim_pixel",
+        "computedat": "particle_sim_compute",
+        "premultrgbbyalpha": false,
+        "vec0name": "uSim",
+        "vec0valuex": {
+          "expression": "absTime.seconds"
+        },
+        "vec0valuey": {
+          "expression": "parent().par.Particlelife"
+        },
+        "vec0valuez": {
+          "expression": "parent().par.Particlespeed"
+        },
+        "vec0valuew": {
+          "expression": "parent().par.Particlesize"
+        },
+        "outputresolution": "custom",
+        "resolutionw": 1280,
+        "resolutionh": 720,
+        "format": "rgba32float",
+        "vec1name": "uAmount",
+        "vec1valuex": {
+          "expression": "parent().par.Particles"
+        },
+        "vec1valuey": 1.0,
+        "vec1valuez": 1.0,
+        "vec1valuew": 1.0,
+        "vec2name": "uHands",
+        "vec2valuex": {
+          "expression": "parent().op('interaction_logic').module.value('left_x',0.0)"
+        },
+        "vec2valuey": {
+          "expression": "parent().op('interaction_logic').module.value('left_y',0.0)"
+        },
+        "vec2valuez": {
+          "expression": "parent().op('interaction_logic').module.value('right_x',0.0)"
+        },
+        "vec2valuew": {
+          "expression": "parent().op('interaction_logic').module.value('right_y',0.0)"
+        },
+        "vec3name": "uReact",
+        "vec3valuex": {
+          "expression": "parent().op('interaction_logic').module.value('burst') * parent().par.Burststrength * parent().par.Interactionson * parent().par.Handbursts"
+        },
+        "vec3valuey": {
+          "expression": "parent().op('interaction_logic').module.value('left_valid',0.0)"
+        },
+        "vec3valuez": {
+          "expression": "parent().op('interaction_logic').module.value('right_valid',0.0)"
+        },
+        "vec3valuew": {
+          "expression": "parent().par.Interactionson"
+        }
+      },
+      "inputs": [
+        "particle_feedback",
+        "person_mask"
+      ],
+      "vectors": 4
+    },
+    {
+      "name": "edge_softness",
+      "type": "blurTOP",
+      "x": 230,
+      "y": 380,
+      "params": {
+        "pageindex": 0,
+        "type": "gaussian",
+        "size": {
+          "expression": "parent().par.Edgewidth"
+        }
+      },
+      "inputs": [
+        "person_mask"
+      ]
+    },
+    {
+      "name": "flower_shader",
+      "type": "glslTOP",
+      "x": 480,
+      "y": 150,
+      "params": {
+        "pageindex": 0,
+        "glslversion": "glsl430",
+        "pixeldat": "flower_shader_pixel",
+        "computedat": "flower_shader_compute",
+        "color0rgbr": {
+          "expression": "parent().par.Background"
+        },
+        "color0rgbg": {
+          "expression": "parent().par.Mirror"
+        },
+        "color0rgbb": 0.0,
+        "color0alpha": 0.0,
+        "vec0name": "uSettings",
+        "vec0valuex": {
+          "expression": "absTime.seconds * parent().par.Speed"
+        },
+        "vec0valuey": {
+          "expression": "parent().par.Density"
+        },
+        "vec0valuez": {
+          "expression": "parent().par.Strength"
+        },
+        "vec0valuew": {
+          "expression": "parent().par.Brightness"
+        },
+        "vec1name": "uLook",
+        "vec1valuex": {
+          "expression": "parent().par.Background"
+        },
+        "vec1valuey": {
+          "expression": "parent().par.Mirror"
+        },
+        "vec2name": "uMotion",
+        "vec2valuex": {
+          "expression": "parent().par.Motionamount"
+        },
+        "vec2valuey": {
+          "expression": "parent().par.Rotation"
+        },
+        "vec2valuez": {
+          "expression": "parent().par.Sway"
+        },
+        "vec2valuew": {
+          "expression": "parent().par.Bloom"
+        },
+        "vec3name": "uReact",
+        "vec3valuex": {
+          "expression": "parent().op('interaction_logic').module.value('stillness',0.0)"
+        },
+        "vec3valuey": {
+          "expression": "parent().op('interaction_logic').module.value('burst',0.0)"
+        },
+        "vec3valuez": {
+          "expression": "parent().op('interaction_logic').module.value('hue') * parent().par.Interactionson * parent().par.Handcolor"
+        },
+        "vec3valuew": {
+          "expression": "parent().op('interaction_logic').module.value('tracked') * parent().par.Interactionson * parent().par.Idleblossom"
+        }
+      },
+      "inputs": [
+        "camera1",
+        "person_mask",
+        "landscape_background"
+      ],
+      "vectors": 4
+    },
+    {
+      "name": "living_garden",
+      "type": "glslTOP",
+      "x": 950,
+      "y": 150,
+      "params": {
+        "pageindex": 0,
+        "glslversion": "glsl430",
+        "pixeldat": "living_garden_pixel",
+        "computedat": "living_garden_compute",
+        "vec0name": "uGarden",
+        "vec0valuex": {
+          "expression": "parent().par.Butterflies"
+        },
+        "vec0valuey": {
+          "expression": "parent().par.Vines"
+        },
+        "vec0valuez": {
+          "expression": "parent().par.Mirror"
+        },
+        "vec0valuew": {
+          "expression": "absTime.seconds"
+        },
+        "vec1name": "uBody",
+        "vec1valuex": {
+          "expression": "parent().op('interaction_logic').module.value('center_x',0.5)"
+        },
+        "vec1valuey": {
+          "expression": "parent().op('interaction_logic').module.value('center_y',0.55)"
+        },
+        "vec1valuez": {
+          "expression": "parent().op('interaction_logic').module.value('tracked',0.0)"
+        },
+        "vec1valuew": {
+          "expression": "parent().op('interaction_logic').module.value('growth',0.0)"
+        },
+        "vec2name": "uLeftUpper",
+        "vec2valuex": {
+          "expression": "parent().op('interaction_logic').module.value('ls_x',0.0)"
+        },
+        "vec2valuey": {
+          "expression": "parent().op('interaction_logic').module.value('ls_y',0.0)"
+        },
+        "vec2valuez": {
+          "expression": "parent().op('interaction_logic').module.value('le_x',0.0)"
+        },
+        "vec2valuew": {
+          "expression": "parent().op('interaction_logic').module.value('le_y',0.0)"
+        },
+        "vec3name": "uLeftLower",
+        "vec3valuex": {
+          "expression": "parent().op('interaction_logic').module.value('left_x',0.0)"
+        },
+        "vec3valuey": {
+          "expression": "parent().op('interaction_logic').module.value('left_y',0.0)"
+        },
+        "vec3valuez": {
+          "expression": "parent().op('interaction_logic').module.value('left_arm_valid')"
+        },
+        "vec3valuew": 1.0,
+        "vec4name": "uRightUpper",
+        "vec4valuex": {
+          "expression": "parent().op('interaction_logic').module.value('rs_x',0.0)"
+        },
+        "vec4valuey": {
+          "expression": "parent().op('interaction_logic').module.value('rs_y',0.0)"
+        },
+        "vec4valuez": {
+          "expression": "parent().op('interaction_logic').module.value('re_x',0.0)"
+        },
+        "vec4valuew": {
+          "expression": "parent().op('interaction_logic').module.value('re_y',0.0)"
+        },
+        "vec5name": "uRightLower",
+        "vec5valuex": {
+          "expression": "parent().op('interaction_logic').module.value('right_x',0.0)"
+        },
+        "vec5valuey": {
+          "expression": "parent().op('interaction_logic').module.value('right_y',0.0)"
+        },
+        "vec5valuez": {
+          "expression": "parent().op('interaction_logic').module.value('right_arm_valid')"
+        },
+        "vec5valuew": 1.0
+      },
+      "inputs": [
+        "edge_particles"
+      ],
+      "vectors": 6
+    },
+    {
+      "name": "particle_seed",
+      "type": "constantTOP",
+      "x": -230,
+      "y": -420,
+      "params": {
+        "pageindex": 0,
+        "colorr": 0.0,
+        "colorg": 0.0,
+        "colorb": 0.0,
+        "alpha": 0.0,
+        "outputresolution": "custom",
+        "resolutionw": 1280,
+        "resolutionh": 720,
+        "format": "rgba32float"
+      },
+      "inputs": []
+    },
+    {
+      "name": "edge_particles",
+      "type": "glslTOP",
+      "x": 710,
+      "y": 150,
+      "params": {
+        "pageindex": 0,
+        "glslversion": "glsl430",
+        "pixeldat": "edge_particles_pixel",
+        "computedat": "edge_particles_compute",
+        "vec0name": "uEdge",
+        "vec0valuex": {
+          "expression": "parent().par.Edgeglow"
+        },
+        "vec0valuey": {
+          "expression": "parent().par.Particles"
+        },
+        "vec0valuez": {
+          "expression": "parent().par.Mirror"
+        },
+        "vec0valuew": {
+          "expression": "absTime.seconds"
+        },
+        "outputresolution": "custom",
+        "resolutionw": 1280,
+        "resolutionh": 720
+      },
+      "inputs": [
+        "flower_shader",
+        "pack_edge_masks",
+        "particle_sim"
+      ],
+      "vectors": 1
+    },
+    {
+      "name": "pack_edge_masks",
+      "type": "glslTOP",
+      "x": 480,
+      "y": 380,
+      "params": {
+        "pageindex": 0,
+        "glslversion": "glsl430",
+        "pixeldat": "pack_edge_masks_pixel",
+        "computedat": "pack_edge_masks_compute"
+      },
+      "inputs": [
+        "person_mask",
+        "edge_softness"
+      ],
+      "vectors": 1
+    },
+    {
+      "name": "interaction_tick",
+      "type": "executeDAT",
+      "x": -450,
+      "y": -100,
+      "params": {
+        "pageindex": 0,
+        "fromop": {
+          "expression": "parent()"
+        },
+        "framestart": true,
+        "language": "python",
+        "active": false
+      },
+      "inputs": [],
+      "text": "def onFrameStart(frame):\n    parent().op('interaction_logic').module.tick()\n    return\n"
+    },
+    {
+      "name": "interaction_logic",
+      "type": "textDAT",
+      "x": -450,
+      "y": 50,
+      "params": {
+        "pageindex": 0,
+        "language": "text"
+      },
+      "inputs": [],
+      "text": "\"\"\"Main-thread gesture controller. All camera inference stays on this computer.\"\"\"\nimport math\nimport time\nimport json\nimport os\nfrom pathlib import Path\nimport subprocess\n_state={'tracked':0.,'stillness':0.,'burst':0.,'hue':0.,'growth':0.,'motion':0.,\n        'left_x':.35,'left_y':.5,'right_x':.65,'right_y':.5,'left_valid':0.,'right_valid':0.,\n        'ls_x':.4,'ls_y':.6,'le_x':.35,'le_y':.5,'rs_x':.6,'rs_y':.6,'re_x':.65,'re_y':.5,\n        'center_x':.5,'center_y':.55}\n_prev={}\n_filtered={}\n_worker=None\n_worker_log=None\n_last=0.\n_status_time=0.\n\ndef value(key,default=0.):\n    return _state.get(key,default)\n\ndef advance(points,dt,sensitivity=1.0,bloom_time=3.0):\n    global _prev,_filtered\n    dt=max(.005,min(.15,dt))\n    blend=1.-math.exp(-dt*8.)\n    _filtered={joint:tuple(old+(new-old)*blend for old,new in zip(_filtered.get(joint,p),p)) for joint,p in points.items()}\n    points=dict(_filtered)\n    tracked=bool(points.get('shoulder_l') or points.get('shoulder_r'))\n    speeds={}\n    for joint,point in points.items():\n        if joint in _prev:\n            speeds[joint]=min(3.,math.dist(point,_prev[joint])/dt)\n    _prev=dict(points)\n    wrist_speed=max(speeds.get('wrist_l',0.),speeds.get('wrist_r',0.))\n    motion=max([speeds.get(j,0.) for j in ['wrist_l','wrist_r','elbow_l','elbow_r','shoulder_l','shoulder_r']]+[0.])\n    signal=max(0.,min(1.,(wrist_speed-.18)*sensitivity*1.4)) if tracked else 0.\n    _state['burst']=max(_state['burst']*math.exp(-dt*2.5),signal)\n    _state['motion']+=(min(1.,motion)-_state['motion'])*(1.-math.exp(-dt*8.))\n    if tracked and motion < .12/max(.25,sensitivity):\n        _state['stillness']=min(1.,_state['stillness']+dt/max(.5,bloom_time))\n    else:\n        _state['stillness']=max(0.,_state['stillness']-dt*1.5)\n    _state['tracked']=1. if tracked else 0.\n    _state['growth']=min(1.,_state['growth']+dt/4.) if tracked else max(0.,_state['growth']-dt)\n    for side,prefix in [('l','left'),('r','right')]:\n        wrist=points.get('wrist_'+side)\n        _state[prefix+'_valid']=1. if wrist else 0.\n        _state[prefix+'_arm_valid']=1. if wrist and 'elbow_'+side in points and 'shoulder_'+side in points else 0.\n        if wrist:\n            for axis,val in zip(['x','y'],wrist):\n                key=prefix+'_'+axis\n                _state[key]+=(val-_state[key])*(1.-math.exp(-dt*12.))\n        for joint,key in [('shoulder_',side+'s'),('elbow_',side+'e')]:\n            point=points.get(joint+side)\n            if point:\n                for axis,val in zip(['x','y'],point):\n                    k=key+'_'+axis\n                    _state[k]+=(val-_state[k])*(1.-math.exp(-dt*12.))\n    wrists=[p for j,p in points.items() if j.startswith('wrist_')]\n    target_hue=(sum(p[1] for p in wrists)/len(wrists)-.5)*.65 if wrists else 0.\n    _state['hue']+=(target_hue-_state['hue'])*(1.-math.exp(-dt*3.))\n    shoulders=[p for j,p in points.items() if j.startswith('shoulder_')]\n    if shoulders:\n        _state['center_x']=sum(p[0] for p in shoulders)/len(shoulders)\n        _state['center_y']=sum(p[1] for p in shoulders)/len(shoulders)+.08\n    return dict(_state)\n\ndef read_points(chop):\n    channels={ch.name.lower().replace(':','_').replace('/','_'):float(ch[0]) for ch in chop.chans()}\n    points={}\n    for joint in ['shoulder_l','shoulder_r','elbow_l','elbow_r','wrist_l','wrist_r']:\n        stem,side=joint.rsplit('_',1)\n        aliases=[joint,('left_' if side=='l' else 'right_')+stem,stem+('_left' if side=='l' else '_right')]\n        values={}\n        for name,v in channels.items():\n            if not any(a in name for a in aliases):continue\n            tail=name.rsplit('_',1)[-1]\n            if tail in ['u','x','tx']:values['x']=v\n            if tail in ['v','y','ty']:values['y']=v\n            if tail in ['confidence','conf','c']:values['confidence']=v\n        if 'x' in values and 'y' in values and values.get('confidence',1.)>=.25:\n            x,y=values['x'],values['y']\n            if -.15<x<1.15 and -.15<y<1.15:points[joint]=(x,y)\n    return points\n\ndef tick():\n    global _last,_status_time,_worker,_worker_log\n    now=time.perf_counter()\n    if _last and now-_last<1./15.:return\n    dt=now-_last if _last else 1./30.\n    _last=now\n    comp=me.parent()\n    root=Path(comp.fetch('asset_root', project.folder))\n    runtime=root/'runtime_pose'\n    runtime.mkdir(exist_ok=True)\n    points={}\n    fresh=False\n    try:\n        data=json.loads((runtime/'pose.json').read_text(encoding='utf-8'))\n        fresh=time.time()-data['time']<1.5\n        if fresh: points={j:tuple(p) for j,p in data['points'].items()}\n    except (OSError,ValueError,KeyError): pass\n    if not fresh and (_worker is None or _worker.poll() is not None):\n        python=root/'.pose-venv/Scripts/python.exe'\n        script=root/'pose_worker.py'\n        if python.exists() and script.exists():\n            if _worker_log: _worker_log.close()\n            _worker_log=(runtime/'worker.log').open('ab')\n            _worker=subprocess.Popen([str(python),str(script),'--root',str(root)],\n                 stdin=subprocess.DEVNULL,stdout=_worker_log,stderr=_worker_log,\n                 creationflags=getattr(subprocess,'CREATE_NO_WINDOW',0))\n    source=comp.op('pose_input')\n    if source is not None:\n        temp=runtime/'frame.incoming.png'\n        try:\n            source.save(str(temp))\n            os.replace(temp,runtime/'frame.png')\n        except OSError: pass\n    advance(points,dt,comp.par.Gesturesensitivity.eval(),comp.par.Stillbloomtime.eval())\n    if now-_status_time>.25:\n        table=comp.op('interaction_status')\n        table.clear();table.appendRow(['signal','value'])\n        for key in ['tracked','motion','burst','stillness','hue','growth','left_valid','right_valid']:\n            table.appendRow([key,round(_state[key],3)])\n        _status_time=now\n"
+    },
+    {
+      "name": "particle_feedback",
+      "type": "feedbackTOP",
+      "x": 0,
+      "y": -420,
+      "params": {
+        "pageindex": 0,
+        "top": "particle_sim",
+        "outputresolution": "custom",
+        "resolutionw": 1280,
+        "resolutionh": 720,
+        "format": "rgba32float"
+      },
+      "inputs": [
+        "particle_seed"
+      ]
+    },
+    {
+      "name": "particle_sim_info",
+      "type": "infoDAT",
+      "x": 160,
+      "y": -120,
+      "params": {
+        "pageindex": 0,
+        "op": "particle_sim",
+        "language": "text"
+      },
+      "inputs": []
+    },
+    {
+      "name": "flower_shader_info",
+      "type": "infoDAT",
+      "x": 160,
+      "y": -120,
+      "params": {
+        "pageindex": 0,
+        "op": "flower_shader",
+        "language": "text"
+      },
+      "inputs": []
+    },
+    {
+      "name": "interaction_status",
+      "type": "tableDAT",
+      "x": -200,
+      "y": 50,
+      "params": {
+        "pageindex": 0
+      },
+      "inputs": []
+    },
+    {
+      "name": "living_garden_info",
+      "type": "infoDAT",
+      "x": 160,
+      "y": -120,
+      "params": {
+        "pageindex": 0,
+        "op": "living_garden",
+        "language": "text"
+      },
+      "inputs": []
+    },
+    {
+      "name": "particle_sim_pixel",
+      "type": "textDAT",
+      "x": 0,
+      "y": -120,
+      "params": {
+        "pageindex": 0,
+        "language": "glsl",
+        "extension": "frag"
+      },
+      "inputs": [],
+      "text": "// Stateful GPU trails: contour petals emit, drift, and fade in a feedback buffer.\nuniform vec4 uSim; // absolute time, lifetime, drift speed, particle size in px\nuniform vec4 uAmount; // particle amount\nuniform vec4 uHands; // left wrist xy, right wrist xy\nuniform vec4 uReact; // burst, left valid, right valid, enabled\nout vec4 fragColor;\nfloat hash21(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}\nfloat maskAt(vec2 uv){return texture(sTD2DInputs[1],uv).a;}\nvec3 palette(float h){return mix(vec3(1.,.32,.48),vec3(1.,.82,.29),h);}\nvoid main(){\n vec2 uv=vUV.st; vec2 res=uTD2DInfos[1].res.zw; vec2 px=1./res;\n float now=mod(uSim.x,10.);\n float then=texture(sTD2DInputs[0],vec2(.5)).a;\n float dt=clamp(mod(now-then+10.,10.),.004,.06);\n vec2 velocity=vec2(.013*sin(uv.y*12.+uSim.x*.7),.028)*uSim.z;\n for(int hand=0;hand<2;hand++){vec2 p=hand==0?uHands.xy:uHands.zw;float v=hand==0?uReact.y:uReact.z;vec2 d=uv-p;velocity+=normalize(d+vec2(.0001))*.14*uReact.x*v*exp(-length(d)*10.);}\n vec3 history=texture(sTD2DInputs[0],uv-velocity*dt).rgb;\n history*=exp(-dt*3./max(.15,uSim.y));\n vec2 grid=uv*res/24.; vec2 cell=floor(grid);\n vec3 emission=vec3(0.);\n for(int j=-1;j<=1;j++)for(int i=-1;i<=1;i++){\n  vec2 id=cell+vec2(i,j); float h=hash21(id);\n  float period=1.1+h*.9;\n  float life=fract(uSim.x/period+h);\n  vec2 center=(id+.5+vec2(hash21(id+3.),hash21(id+8.))*.45-.225)*24./res;\n  float l=maskAt(center-vec2(12.*px.x,0.)); float r=maskAt(center+vec2(12.*px.x,0.));\n  float b=maskAt(center-vec2(0.,12.*px.y)); float t=maskAt(center+vec2(0.,12.*px.y));\n  float edge=clamp(max(max(l,r),max(b,t))-min(min(l,r),min(b,t)),0.,1.);\n  vec2 outward=normalize(vec2(l-r,b-t)+vec2(.001,.002));\n  vec2 drift=outward*life*.018*uSim.z+vec2(sin(life*6.+h*20.)*.008,life*.022)*uSim.z;\n  drift*=1.+uReact.x*3.;\n  vec2 q=(uv-center-drift)*res/max(1.,uSim.w);\n  float spin=h*6.28+uSim.x*.8;\n  q=mat2(cos(spin),-sin(spin),sin(spin),cos(spin))*q;\n  float petal=exp(-dot(q*vec2(.65,1.8),q*vec2(.65,1.8))*2.2);\n  float twinkle=.5+.5*sin(uSim.x*5.+h*25.);\n  float emitGate=smoothstep(.08,.35,edge)*(1.-smoothstep(.5,.95,life));\n  emitGate*=step(h,clamp(uAmount.x+uReact.x*.5,0.,1.));\n  emission+=palette(h)*petal*emitGate*(.6+.4*twinkle)*1.4*(1.+uReact.x*2.);\n }\n for(int hand=0;hand<2;hand++)for(int k=0;k<12;k++){\n  float h=hash21(vec2(k,hand+21.));float age=fract(uSim.x*(.5+h*.7)+h);\n  vec2 wrist=hand==0?uHands.xy:uHands.zw;float valid=hand==0?uReact.y:uReact.z;\n  float angle=h*6.28318+sin(uSim.x+h*10.)*.2;\n  vec2 center=wrist+vec2(cos(angle),sin(angle))*(.006+age*.12*(1.+uReact.x));\n  vec2 q=(uv-center)*res/max(1.,uSim.w*1.2);\n  float petal=exp(-dot(q*vec2(.7,1.5),q*vec2(.7,1.5)));\n  emission+=palette(h)*petal*valid*uReact.x*(1.-age)*2.;\n }\n vec3 particles=max(history,emission);\n fragColor=TDOutputSwizzle(vec4(particles,now));\n}\n"
+    },
+    {
+      "name": "edge_particles_info",
+      "type": "infoDAT",
+      "x": 160,
+      "y": -120,
+      "params": {
+        "pageindex": 0,
+        "op": "edge_particles",
+        "language": "text"
+      },
+      "inputs": []
+    },
+    {
+      "name": "flower_shader_pixel",
+      "type": "textDAT",
+      "x": 0,
+      "y": -120,
+      "params": {
+        "pageindex": 0,
+        "language": "glsl",
+        "extension": "frag"
+      },
+      "inputs": [],
+      "text": "// Procedural blossoms shaded by the live camera, clipped by the person matte.\nuniform vec4 uSettings; // time, density, effect strength, brightness\nuniform vec4 uLook; // background brightness, mirror, unused, unused\nuniform vec4 uMotion; // amount, rotation speed, sway, bloom\nuniform vec4 uReact; // stillness, burst, hue, tracked\nout vec4 fragColor;\nfloat hash21(vec2 p) { return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453123); }\nvec3 palette(float h) {\n    if(h<0.20) return vec3(1.0,0.30,0.48);\n    if(h<0.40) return vec3(1.0,0.70,0.23);\n    if(h<0.60) return vec3(0.83,0.48,1.0);\n    if(h<0.80) return vec3(1.0,0.88,0.71);\n    return vec3(1.0,0.49,0.25);\n}\nvec3 hueShift(vec3 c,float h){vec3 k=vec3(.57735027);float a=h*6.28318;return clamp(c*cos(a)+cross(k,c)*sin(a)+k*dot(k,c)*(1.-cos(a)),0.,1.);}\nvoid main() {\n    vec2 uv=vUV.st;\n    if(uLook.y>0.5) uv.x=1.0-uv.x;\n    vec3 camera=texture(sTD2DInputs[0],uv).rgb;\n    float mask=texture(sTD2DInputs[1],uv).a;\n    float aspect=uTD2DInfos[0].res.z/uTD2DInfos[0].res.w;\n    vec2 gridSize=vec2(aspect,1.0)*uSettings.y;\n    vec2 grid=uv*gridSize;\n    vec2 cell=floor(grid);\n    vec3 flowers=vec3(0.025,0.105,0.055);\n    for(int y=-1;y<=1;y++) for(int x=-1;x<=1;x++) {\n        vec2 id=cell+vec2(x,y);\n        float h=hash21(id);\n        vec2 jitter=vec2(hash21(id+13.2),hash21(id+49.7))-.5;\n        float phase=uSettings.x*(.7+h*.8)+h*30.;\n        vec2 center=id+.5+jitter*.56;\n        center+=uMotion.x*uMotion.z*vec2(sin(phase),cos(phase*.73+h*12.));\n        vec2 sampleUV=center/gridSize;\n        vec3 shade=texture(sTD2DInputs[0],sampleUV).rgb;\n        float lum=dot(shade,vec3(.2126,.7152,.0722));\n        float person=texture(sTD2DInputs[1],sampleUV).a;\n        vec2 q=grid-center;\n        float direction=hash21(id+26.)>.5?1.:-1.;\n        float turn=h*6.28318+uMotion.x*(uSettings.x*uMotion.y*(.35+.65*hash21(id+17.))*direction+.22*sin(phase*.6));\n        q=mat2(cos(turn),-sin(turn),sin(turn),cos(turn))*q;\n        float r=length(q);\n        float a=atan(q.y,q.x);\n        float petals=5.+floor(hash21(id+9.1)*5.);\n        float growth=1.+uMotion.x*uMotion.w*sin(phase*.8);\n        growth*=mix(1.,mix(.42,1.45,uReact.x),uReact.w);\n        float radius=(.35+.075*cos(a*petals))*growth;\n        float blossom=1.-smoothstep(radius-.035,radius+.015,r);\n        blossom*=smoothstep(.12,.52,person);\n        vec3 petal=hueShift(palette(h),uReact.z)*(.25+.95*sqrt(max(lum,0.)));\n        petal*=.76+.24*cos(a*petals);\n        petal+=.08*pow(max(0.,1.-r/.45),2.);\n        flowers=mix(flowers,petal,blossom);\n        float core=(1.-smoothstep(.065*growth,.12*growth,r))*smoothstep(.12,.52,person);\n        vec3 gold=mix(vec3(.23,.10,.025),vec3(1.,.78,.18),.5+.5*sin(a*13.+r*180.));\n        flowers=mix(flowers,gold*(.4+.6*sqrt(max(lum,0.))),core);\n    }\n    float matte=smoothstep(.18,.78,mask);\n    vec3 personColor=mix(camera,flowers,clamp(uSettings.z,0.,1.));\n    vec3 background=texture(sTD2DInputs[2],vUV.st).rgb*uLook.x;\n    vec3 outputColor=mix(background,personColor,matte)*uSettings.w;\n    fragColor=TDOutputSwizzle(vec4(outputColor,1.));\n}\n"
+    },
+    {
+      "name": "living_garden_pixel",
+      "type": "textDAT",
+      "x": 0,
+      "y": -120,
+      "params": {
+        "pageindex": 0,
+        "language": "glsl",
+        "extension": "frag"
+      },
+      "inputs": [],
+      "text": "// Tracked arm vines and animated butterflies, drawn over the live flower scene.\nuniform vec4 uGarden; // butterfly count, vines amount, mirror, seconds\nuniform vec4 uBody; // body center x,y, tracking confidence, vine growth\nuniform vec4 uLeftUpper; // shoulder xy, elbow xy\nuniform vec4 uLeftLower; // wrist xy, valid, unused\nuniform vec4 uRightUpper;\nuniform vec4 uRightLower;\nout vec4 fragColor;\nfloat hash21(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}\nvec2 screenPoint(vec2 p){return vec2(uGarden.z>.5?1.-p.x:p.x,p.y);}\nvec4 vine(vec2 p,vec2 a,vec2 b,float growth,float seed){\n vec2 ab=b-a; float len=length(ab); if(len<.01)return vec4(0.);\n vec2 axis=ab/len; vec2 normal=vec2(-axis.y,axis.x);\n float t=clamp(dot(p-a,axis)/len,0.,1.);\n float bend=sin(t*24.+seed+uGarden.w*.3)*.004;\n float distance=abs(dot(p-a,normal)-bend);\n float stem=(1.-smoothstep(.0014,.0035,distance))*step(t,growth)*step(0.,dot(p-a,axis))*step(dot(p-a,axis),len);\n vec3 color=vec3(.18,.54,.12); float alpha=stem;\n for(int j=0;j<8;j++){\n  float along=(float(j)+.5)/8.; float side=mod(float(j),2.)*2.-1.;\n  vec2 pos=a+ab*along+normal*sin(along*24.+seed+uGarden.w*.3)*.004;\n  vec2 direction=normalize(axis*.55+normal*side);\n  vec2 leafCenter=pos+direction*.011;\n  vec2 q=p-leafCenter; float x=dot(q,direction)/.016;float y=dot(q,vec2(-direction.y,direction.x))/.006;\n  float leaf=(1.-smoothstep(.8,1.,x*x+y*y))*smoothstep(along-.04,along+.04,growth);\n  vec3 green=mix(vec3(.08,.28,.06),vec3(.4,.76,.18),clamp(.5+.5*y,0.,1.));\n  if(leaf>alpha){color=green;alpha=leaf;}\n }\n return vec4(color,alpha);\n}\nvec4 butterfly(vec2 p,vec2 center,float angle,float phase,float scale,float hue){\n vec2 q=p-center; q=mat2(cos(angle),-sin(angle),sin(angle),cos(angle))*q;\n q/=scale;\n float flap=.2+.8*abs(sin(phase));\n q.x/=flap;\n float upper=pow((abs(q.x)-.48)/.48,2.)+pow((q.y-.20)/.52,2.);\n float lower=pow((abs(q.x)-.34)/.34,2.)+pow((q.y+.35)/.34,2.);\n float wing=min(upper,lower);\n float shape=1.-smoothstep(.85,1.05,wing);\n vec3 tone=mix(vec3(1.,.42,.06),vec3(.65,.3,1.),hue);\n tone*=.5+.5*(1.-clamp(wing,0.,1.));\n float spots=pow(abs(sin(q.y*16.+q.x*9.)),18.);\n tone=mix(tone,vec3(1.,.96,.7),spots*.6);\n tone=mix(tone,vec3(.045,.018,.025),smoothstep(.68,.98,wing));\n float body=1.-smoothstep(.065,.11,abs(q.x));body*=1.-smoothstep(.35,.5,abs(q.y));\n tone=mix(tone,vec3(.06,.025,.02),body);\n return vec4(tone,max(shape,body));\n}\nvoid main(){\n vec2 uv=vUV.st; vec3 scene=texture(sTD2DInputs[0],uv).rgb;\n float aspect=uTD2DInfos[0].res.z/uTD2DInfos[0].res.w;\n vec2 metric=vec2(aspect,1.);vec2 p=uv*metric;\n float growth=uBody.w;\n for(int side=0;side<2;side++){\n  vec4 upper=side==0?uLeftUpper:uRightUpper; vec4 lower=side==0?uLeftLower:uRightLower;\n  float enabled=uGarden.y*uBody.z*lower.z;\n  vec2 a=screenPoint(upper.xy)*metric; vec2 b=screenPoint(upper.zw)*metric;vec2 d=screenPoint(lower.xy)*metric;\n  vec4 v=vine(p,a,b,smoothstep(0.,.55,growth),float(side)*4.);\n  scene=mix(scene,v.rgb,v.a*enabled);\n  v=vine(p,b,d,smoothstep(.45,1.,growth),float(side)*4.+2.);\n  scene=mix(scene,v.rgb,v.a*enabled);\n }\n vec2 center=screenPoint(uBody.xy);\n for(int i=0;i<12;i++){\n  if(float(i)>=uGarden.x)break;\n  float h=hash21(vec2(i,7.)); float time=uGarden.w*(.3+h*.15);\n  float a=time+float(i)*2.39996;\n  vec2 pos=center+vec2(cos(a)*(.20+.10*h)/aspect,sin(a*.83)*(.16+.12*h));\n  pos+=vec2(sin(time*2.1+h*8.),cos(time*1.7+h*4.))*.025;\n  float angle=sin(time+h*20.)*.7;\n  vec4 b=butterfly(p,pos*metric,angle,uGarden.w*(7.+h*5.)+h*12.,.021+h*.011,h);\n  scene=mix(scene,b.rgb,b.a);\n }\n fragColor=TDOutputSwizzle(vec4(scene,1.));\n}\n"
+    },
+    {
+      "name": "edge_particles_pixel",
+      "type": "textDAT",
+      "x": 0,
+      "y": -120,
+      "params": {
+        "pageindex": 0,
+        "language": "glsl",
+        "extension": "frag"
+      },
+      "inputs": [],
+      "text": "// Soft silhouette rim, warm bloom, and drifting petal trails over the scene.\nuniform vec4 uEdge; // glow amount, particles amount, mirror camera, time\nout vec4 fragColor;\nvoid main(){\n vec2 uv=vUV.st; vec2 personUV=uv;\n if(uEdge.z>.5) personUV.x=1.-personUV.x;\n vec3 scene=texture(sTD2DInputs[0],uv).rgb;\n float hard=texture(sTD2DInputs[1],personUV).r;\n float soft=texture(sTD2DInputs[1],personUV).g;\n vec2 px=uTD2DInfos[0].res.xy*2.;\n vec3 smoothed=(scene*2.+texture(sTD2DInputs[0],uv+vec2(px.x,0)).rgb+texture(sTD2DInputs[0],uv-vec2(px.x,0)).rgb+texture(sTD2DInputs[0],uv+vec2(0,px.y)).rgb+texture(sTD2DInputs[0],uv-vec2(0,px.y)).rgb)/6.;\n scene=mix(scene,smoothed,clamp(abs(soft-hard)*2.,0.,.65));\n float halo=soft*(1.-smoothstep(.15,.9,hard))*3.;\n float inner=abs(soft-hard)*.5;\n vec3 tint=mix(vec3(1.,.35,.58),vec3(1.,.76,.28),.5+.5*sin(personUV.y*5.+uEdge.w*.45));\n vec3 glow=tint*(halo+inner)*uEdge.x;\n vec3 particles=texture(sTD2DInputs[2],personUV).rgb*uEdge.y;\n vec3 additions=glow+particles;\n vec3 color=1.-(1.-clamp(scene,0.,1.))*exp(-additions);\n fragColor=TDOutputSwizzle(vec4(color,1.));\n}\n"
+    },
+    {
+      "name": "landscape_background",
+      "type": "moviefileinTOP",
+      "x": 625,
+      "y": -25,
+      "params": {
+        "pageindex": 0,
+        "file": {
+          "expression": "parent().par.Backgroundimage"
+        },
+        "index": {
+          "expression": "me.time.frame"
+        },
+        "timecodeop": {
+          "expression": "tdu.Timecode()"
+        },
+        "outputresolution": "custom",
+        "resolutionw": 1280,
+        "resolutionh": 720
+      },
+      "inputs": []
+    },
+    {
+      "name": "pack_edge_masks_info",
+      "type": "infoDAT",
+      "x": 160,
+      "y": -120,
+      "params": {
+        "pageindex": 0,
+        "op": "pack_edge_masks",
+        "language": "text"
+      },
+      "inputs": []
+    },
+    {
+      "name": "particle_sim_compute",
+      "type": "textDAT",
+      "x": 320,
+      "y": -120,
+      "params": {
+        "pageindex": 0,
+        "language": "glsl"
+      },
+      "inputs": [],
+      "text": "// Example Compute Shader\n\n// uniform float exampleUniform;\n\nlayout (local_size_x = 8, local_size_y = 4) in;\nvoid main()\n{\n\t// This code is running 1:1 per pixel, so early-exit\n\t// if this thread overhangs the edge of the output\n\tif (any(greaterThanEqual(ivec2(gl_GlobalInvocationID.xy), ivec2(uTDOutputInfo.res.zw))))\n\t\treturn;\n\n\tvec4 color;\n\t//color = texelFetch(sTD2DInputs[0], ivec2(gl_GlobalInvocationID.xy), 0);\n\tcolor = vec4(1.0);\n\t// We need to use TDImageStoreOutput() so that 8-bit textures that are sRGB\n\t// encoded can be written to correctly from incoming linear values.\n\t// imageStore() does not do this automatically, while pixel shader outputs do.\n\tTDImageStoreOutput(0, gl_GlobalInvocationID, color);\n}\n"
+    },
+    {
+      "name": "flower_shader_compute",
+      "type": "textDAT",
+      "x": 320,
+      "y": -120,
+      "params": {
+        "pageindex": 0,
+        "language": "glsl"
+      },
+      "inputs": [],
+      "text": "// Example Compute Shader\n\n// uniform float exampleUniform;\n\nlayout (local_size_x = 8, local_size_y = 4) in;\nvoid main()\n{\n\t// This code is running 1:1 per pixel, so early-exit\n\t// if this thread overhangs the edge of the output\n\tif (any(greaterThanEqual(ivec2(gl_GlobalInvocationID.xy), ivec2(uTDOutputInfo.res.zw))))\n\t\treturn;\n\n\tvec4 color;\n\t//color = texelFetch(sTD2DInputs[0], ivec2(gl_GlobalInvocationID.xy), 0);\n\tcolor = vec4(1.0);\n\t// We need to use TDImageStoreOutput() so that 8-bit textures that are sRGB\n\t// encoded can be written to correctly from incoming linear values.\n\t// imageStore() does not do this automatically, while pixel shader outputs do.\n\tTDImageStoreOutput(0, gl_GlobalInvocationID, color);\n}\n"
+    },
+    {
+      "name": "living_garden_compute",
+      "type": "textDAT",
+      "x": 320,
+      "y": -120,
+      "params": {
+        "pageindex": 0,
+        "language": "glsl"
+      },
+      "inputs": [],
+      "text": "// Example Compute Shader\n\n// uniform float exampleUniform;\n\nlayout (local_size_x = 8, local_size_y = 4) in;\nvoid main()\n{\n\t// This code is running 1:1 per pixel, so early-exit\n\t// if this thread overhangs the edge of the output\n\tif (any(greaterThanEqual(ivec2(gl_GlobalInvocationID.xy), ivec2(uTDOutputInfo.res.zw))))\n\t\treturn;\n\n\tvec4 color;\n\t//color = texelFetch(sTD2DInputs[0], ivec2(gl_GlobalInvocationID.xy), 0);\n\tcolor = vec4(1.0);\n\t// We need to use TDImageStoreOutput() so that 8-bit textures that are sRGB\n\t// encoded can be written to correctly from incoming linear values.\n\t// imageStore() does not do this automatically, while pixel shader outputs do.\n\tTDImageStoreOutput(0, gl_GlobalInvocationID, color);\n}\n"
+    },
+    {
+      "name": "pack_edge_masks_pixel",
+      "type": "textDAT",
+      "x": 0,
+      "y": -120,
+      "params": {
+        "pageindex": 0,
+        "language": "glsl",
+        "extension": "frag"
+      },
+      "inputs": [],
+      "text": "out vec4 fragColor; void main(){float hard=texture(sTD2DInputs[0],vUV.st).a;float soft=texture(sTD2DInputs[1],vUV.st).a;fragColor=TDOutputSwizzle(vec4(hard,soft,0.,1.));}"
+    },
+    {
+      "name": "edge_particles_compute",
+      "type": "textDAT",
+      "x": 320,
+      "y": -120,
+      "params": {
+        "pageindex": 0,
+        "language": "glsl"
+      },
+      "inputs": [],
+      "text": "// Example Compute Shader\n\n// uniform float exampleUniform;\n\nlayout (local_size_x = 8, local_size_y = 4) in;\nvoid main()\n{\n\t// This code is running 1:1 per pixel, so early-exit\n\t// if this thread overhangs the edge of the output\n\tif (any(greaterThanEqual(ivec2(gl_GlobalInvocationID.xy), ivec2(uTDOutputInfo.res.zw))))\n\t\treturn;\n\n\tvec4 color;\n\t//color = texelFetch(sTD2DInputs[0], ivec2(gl_GlobalInvocationID.xy), 0);\n\tcolor = vec4(1.0);\n\t// We need to use TDImageStoreOutput() so that 8-bit textures that are sRGB\n\t// encoded can be written to correctly from incoming linear values.\n\t// imageStore() does not do this automatically, while pixel shader outputs do.\n\tTDImageStoreOutput(0, gl_GlobalInvocationID, color);\n}\n"
+    },
+    {
+      "name": "pack_edge_masks_compute",
+      "type": "textDAT",
+      "x": 320,
+      "y": -120,
+      "params": {
+        "pageindex": 0,
+        "language": "glsl"
+      },
+      "inputs": [],
+      "text": "// Example Compute Shader\n\n// uniform float exampleUniform;\n\nlayout (local_size_x = 8, local_size_y = 4) in;\nvoid main()\n{\n\t// This code is running 1:1 per pixel, so early-exit\n\t// if this thread overhangs the edge of the output\n\tif (any(greaterThanEqual(ivec2(gl_GlobalInvocationID.xy), ivec2(uTDOutputInfo.res.zw))))\n\t\treturn;\n\n\tvec4 color;\n\t//color = texelFetch(sTD2DInputs[0], ivec2(gl_GlobalInvocationID.xy), 0);\n\tcolor = vec4(1.0);\n\t// We need to use TDImageStoreOutput() so that 8-bit textures that are sRGB\n\t// encoded can be written to correctly from incoming linear values.\n\t// imageStore() does not do this automatically, while pixel shader outputs do.\n\tTDImageStoreOutput(0, gl_GlobalInvocationID, color);\n}\n"
+    }
+  ]
+}
